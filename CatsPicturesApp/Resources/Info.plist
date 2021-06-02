@@ -62,5 +62,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>BASE_URL</key>
+	<string>https:/$()/api.thecatapi.com/v1</string>
+	<key>API_KEY</key>
+	<string>8dfc2a97-9752-4cdc-9c76-fab65c2f3903</string>
 </dict>
 </plist>

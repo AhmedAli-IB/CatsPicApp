@@ -10,6 +10,16 @@
 		6044433026678CCC001DA3AB /* URLParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044432F26678CCC001DA3AB /* URLParameterEncoding.swift */; };
 		6044433826678CF0001DA3AB /* JSONParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044433726678CF0001DA3AB /* JSONParameterEncoding.swift */; };
 		6044433D26678D08001DA3AB /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044433C26678D08001DA3AB /* ParameterEncoding.swift */; };
+		6044434626678D7D001DA3AB /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044434526678D7D001DA3AB /* EndPointType.swift */; };
+		6044434E26678D90001DA3AB /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044434D26678D90001DA3AB /* HTTPMethod.swift */; };
+		6044435326678DAD001DA3AB /* HttpTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044435226678DAD001DA3AB /* HttpTask.swift */; };
+		6044435826678DD5001DA3AB /* NetworkRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044435726678DD5001DA3AB /* NetworkRouterProtocol.swift */; };
+		6044435D26678E0C001DA3AB /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044435C26678E0C001DA3AB /* Router.swift */; };
+		6044436326679073001DA3AB /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044436226679073001DA3AB /* URLSessionProtocol.swift */; };
+		6044436C266790C8001DA3AB /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044436B266790C8001DA3AB /* Environment.swift */; };
+		60444374266790FF001DA3AB /* CatEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60444373266790FF001DA3AB /* CatEndPoint.swift */; };
+		6044437A2667916D001DA3AB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604443792667916D001DA3AB /* NetworkManager.swift */; };
+		604443822667918D001DA3AB /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604443812667918D001DA3AB /* NetworkError.swift */; };
 		60F3C59E266785B100FE78B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3C59D266785B100FE78B2 /* AppDelegate.swift */; };
 		60F3C5A0266785B100FE78B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3C59F266785B100FE78B2 /* SceneDelegate.swift */; };
 		60F3C5A2266785B100FE78B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3C5A1266785B100FE78B2 /* ViewController.swift */; };
@@ -42,6 +52,16 @@
 		6044432F26678CCC001DA3AB /* URLParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoding.swift; sourceTree = "<group>"; };
 		6044433726678CF0001DA3AB /* JSONParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoding.swift; sourceTree = "<group>"; };
 		6044433C26678D08001DA3AB /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		6044434526678D7D001DA3AB /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		6044434D26678D90001DA3AB /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		6044435226678DAD001DA3AB /* HttpTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpTask.swift; sourceTree = "<group>"; };
+		6044435726678DD5001DA3AB /* NetworkRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouterProtocol.swift; sourceTree = "<group>"; };
+		6044435C26678E0C001DA3AB /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		6044436226679073001DA3AB /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		6044436B266790C8001DA3AB /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		60444373266790FF001DA3AB /* CatEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatEndPoint.swift; sourceTree = "<group>"; };
+		604443792667916D001DA3AB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		604443812667918D001DA3AB /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		60F3C59A266785B100FE78B2 /* CatsPicturesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatsPicturesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F3C59D266785B100FE78B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60F3C59F266785B100FE78B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +121,10 @@
 		6044432C26678A3B001DA3AB /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				6044436A266790B3001DA3AB /* EndPoint */,
+				6044436126678E1D001DA3AB /* Protocol */,
+				604443782667914D001DA3AB /* Manager */,
+				6044434426678D5D001DA3AB /* Service */,
 				6044432E26678CB2001DA3AB /* Encoding */,
 			);
 			path = Networking;
@@ -121,6 +145,44 @@
 				6044432F26678CCC001DA3AB /* URLParameterEncoding.swift */,
 			);
 			path = Encoding;
+			sourceTree = "<group>";
+		};
+		6044434426678D5D001DA3AB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				6044434526678D7D001DA3AB /* EndPointType.swift */,
+				6044434D26678D90001DA3AB /* HTTPMethod.swift */,
+				6044435226678DAD001DA3AB /* HttpTask.swift */,
+				6044435726678DD5001DA3AB /* NetworkRouterProtocol.swift */,
+				6044435C26678E0C001DA3AB /* Router.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		6044436126678E1D001DA3AB /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				6044436226679073001DA3AB /* URLSessionProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		6044436A266790B3001DA3AB /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				60444373266790FF001DA3AB /* CatEndPoint.swift */,
+				6044436B266790C8001DA3AB /* Environment.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		604443782667914D001DA3AB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				604443792667916D001DA3AB /* NetworkManager.swift */,
+				604443812667918D001DA3AB /* NetworkError.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		60F3C591266785B100FE78B2 = {
@@ -348,13 +410,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				604443822667918D001DA3AB /* NetworkError.swift in Sources */,
+				6044434626678D7D001DA3AB /* EndPointType.swift in Sources */,
 				6044433D26678D08001DA3AB /* ParameterEncoding.swift in Sources */,
 				60F3C5A2266785B100FE78B2 /* ViewController.swift in Sources */,
+				6044436C266790C8001DA3AB /* Environment.swift in Sources */,
+				6044437A2667916D001DA3AB /* NetworkManager.swift in Sources */,
 				60F3C59E266785B100FE78B2 /* AppDelegate.swift in Sources */,
+				6044435D26678E0C001DA3AB /* Router.swift in Sources */,
 				6044433826678CF0001DA3AB /* JSONParameterEncoding.swift in Sources */,
+				6044434E26678D90001DA3AB /* HTTPMethod.swift in Sources */,
 				60F3C5A0266785B100FE78B2 /* SceneDelegate.swift in Sources */,
+				6044436326679073001DA3AB /* URLSessionProtocol.swift in Sources */,
+				60444374266790FF001DA3AB /* CatEndPoint.swift in Sources */,
 				60F3C5A8266785B100FE78B2 /* CatsPicturesApp.xcdatamodeld in Sources */,
+				6044435326678DAD001DA3AB /* HttpTask.swift in Sources */,
 				6044433026678CCC001DA3AB /* URLParameterEncoding.swift in Sources */,
+				6044435826678DD5001DA3AB /* NetworkRouterProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
