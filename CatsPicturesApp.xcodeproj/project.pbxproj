@@ -139,6 +139,7 @@
 			buildConfigurationList = 60F3C5C7266785B200FE78B2 /* Build configuration list for PBXNativeTarget "CatsPicturesApp" */;
 			buildPhases = (
 				60F3C596266785B100FE78B2 /* Sources */,
+				60F3C5D32667865D00FE78B2 /* Swift Lint */,
 				60F3C597266785B100FE78B2 /* Frameworks */,
 				60F3C598266785B100FE78B2 /* Resources */,
 			);
@@ -255,6 +256,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		60F3C5D32667865D00FE78B2 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		60F3C596266785B100FE78B2 /* Sources */ = {
