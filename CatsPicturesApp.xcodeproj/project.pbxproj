@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6044433026678CCC001DA3AB /* URLParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044432F26678CCC001DA3AB /* URLParameterEncoding.swift */; };
+		6044433826678CF0001DA3AB /* JSONParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044433726678CF0001DA3AB /* JSONParameterEncoding.swift */; };
+		6044433D26678D08001DA3AB /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044433C26678D08001DA3AB /* ParameterEncoding.swift */; };
 		60F3C59E266785B100FE78B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3C59D266785B100FE78B2 /* AppDelegate.swift */; };
 		60F3C5A0266785B100FE78B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3C59F266785B100FE78B2 /* SceneDelegate.swift */; };
 		60F3C5A2266785B100FE78B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3C5A1266785B100FE78B2 /* ViewController.swift */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6044432F26678CCC001DA3AB /* URLParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoding.swift; sourceTree = "<group>"; };
+		6044433726678CF0001DA3AB /* JSONParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoding.swift; sourceTree = "<group>"; };
+		6044433C26678D08001DA3AB /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
 		60F3C59A266785B100FE78B2 /* CatsPicturesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatsPicturesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F3C59D266785B100FE78B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60F3C59F266785B100FE78B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +101,7 @@
 		6044432C26678A3B001DA3AB /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				6044432E26678CB2001DA3AB /* Encoding */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -104,6 +111,16 @@
 			children = (
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		6044432E26678CB2001DA3AB /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				6044433C26678D08001DA3AB /* ParameterEncoding.swift */,
+				6044433726678CF0001DA3AB /* JSONParameterEncoding.swift */,
+				6044432F26678CCC001DA3AB /* URLParameterEncoding.swift */,
+			);
+			path = Encoding;
 			sourceTree = "<group>";
 		};
 		60F3C591266785B100FE78B2 = {
@@ -331,10 +348,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6044433D26678D08001DA3AB /* ParameterEncoding.swift in Sources */,
 				60F3C5A2266785B100FE78B2 /* ViewController.swift in Sources */,
 				60F3C59E266785B100FE78B2 /* AppDelegate.swift in Sources */,
+				6044433826678CF0001DA3AB /* JSONParameterEncoding.swift in Sources */,
 				60F3C5A0266785B100FE78B2 /* SceneDelegate.swift in Sources */,
 				60F3C5A8266785B100FE78B2 /* CatsPicturesApp.xcdatamodeld in Sources */,
+				6044433026678CCC001DA3AB /* URLParameterEncoding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
