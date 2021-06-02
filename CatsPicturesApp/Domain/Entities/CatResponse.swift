@@ -10,5 +10,5 @@ import Foundation
 // MARK: - CatsResponse
 //
 struct CatsResponse: Codable {
-    let url: String
+    let url: String?
 }
