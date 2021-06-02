@@ -10,7 +10,7 @@ import Foundation
 typealias NetworkRouterCompletion = (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void
 
 // MARK: - Network router protocol
-/// `NetworkRouter` responsable for making requests and once the request is made it passes the response to the completion
+/// `NetworkRouter` Responsible for making requests and once the request is made it passes the response to the completion
 //
 protocol NetworkRouter: class {
     associatedtype EndPoint: EndPointType

@@ -7,7 +7,7 @@
 
 import Foundation
 // MARK: - Router
-/// `Router` responsable for build and make network call using `URLSession`
+/// `Router` Responsible for build and make network call using `URLSession`
 //
 class Router<EndPoint: EndPointType>: NetworkRouter {
     
