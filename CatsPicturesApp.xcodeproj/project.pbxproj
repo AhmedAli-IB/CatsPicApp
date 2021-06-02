@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,10 +23,21 @@
 		6044438C2667A6A8001DA3AB /* CatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044438B2667A6A8001DA3AB /* CatResponse.swift */; };
 		604443952667A72C001DA3AB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604443932667A72C001DA3AB /* HomeViewController.swift */; };
 		604443962667A72C001DA3AB /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 604443942667A72C001DA3AB /* HomeViewController.xib */; };
+		604443AF2667B074001DA3AB /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604443AE2667B074001DA3AB /* State.swift */; };
+		604443B52667B0F9001DA3AB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604443B42667B0F9001DA3AB /* HomeViewModel.swift */; };
+		604443C42667BAD1001DA3AB /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604443C22667BAD1001DA3AB /* HomeCollectionViewCell.swift */; };
+		604443C52667BAD1001DA3AB /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 604443C32667BAD1001DA3AB /* HomeCollectionViewCell.xib */; };
+		604443EF2667C061001DA3AB /* UIImage+LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604443EE2667C061001DA3AB /* UIImage+LoadImage.swift */; };
+		604443F82667C0E8001DA3AB /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 604443F72667C0E8001DA3AB /* Kingfisher */; };
+		604443FD2667C1AF001DA3AB /* UIImage+CatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604443FC2667C1AF001DA3AB /* UIImage+CatApp.swift */; };
+		604444042667CB24001DA3AB /* UICollectionView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604444012667CB24001DA3AB /* UICollectionView+Helpers.swift */; };
+		604444212667E47A001DA3AB /* CatCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604444202667E47A001DA3AB /* CatCellViewModel.swift */; };
+		6044442F2667F1D0001DA3AB /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044442E2667F1D0001DA3AB /* UIViewController+Alerts.swift */; };
+		6044443A2667F388001DA3AB /* NSObject+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604444392667F388001DA3AB /* NSObject+Helpers.swift */; };
+		604444422667F3B7001DA3AB /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604444412667F3B7001DA3AB /* UIView+Helpers.swift */; };
+		604444472668082D001DA3AB /* PagingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604444462668082D001DA3AB /* PagingController.swift */; };
 		60F3C59E266785B100FE78B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3C59D266785B100FE78B2 /* AppDelegate.swift */; };
 		60F3C5A0266785B100FE78B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3C59F266785B100FE78B2 /* SceneDelegate.swift */; };
-		60F3C5A2266785B100FE78B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3C5A1266785B100FE78B2 /* ViewController.swift */; };
-		60F3C5A5266785B100FE78B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60F3C5A3266785B100FE78B2 /* Main.storyboard */; };
 		60F3C5A8266785B100FE78B2 /* CatsPicturesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 60F3C5A6266785B100FE78B2 /* CatsPicturesApp.xcdatamodeld */; };
 		60F3C5AA266785B200FE78B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60F3C5A9266785B200FE78B2 /* Assets.xcassets */; };
 		60F3C5AD266785B200FE78B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60F3C5AB266785B200FE78B2 /* LaunchScreen.storyboard */; };
@@ -68,11 +79,21 @@
 		6044438B2667A6A8001DA3AB /* CatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatResponse.swift; sourceTree = "<group>"; };
 		604443932667A72C001DA3AB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		604443942667A72C001DA3AB /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		604443AE2667B074001DA3AB /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		604443B42667B0F9001DA3AB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		604443C22667BAD1001DA3AB /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		604443C32667BAD1001DA3AB /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		604443EE2667C061001DA3AB /* UIImage+LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+LoadImage.swift"; sourceTree = "<group>"; };
+		604443FC2667C1AF001DA3AB /* UIImage+CatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CatApp.swift"; sourceTree = "<group>"; };
+		604444012667CB24001DA3AB /* UICollectionView+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Helpers.swift"; sourceTree = "<group>"; };
+		604444202667E47A001DA3AB /* CatCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCellViewModel.swift; sourceTree = "<group>"; };
+		6044442E2667F1D0001DA3AB /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
+		604444392667F388001DA3AB /* NSObject+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Helpers.swift"; sourceTree = "<group>"; };
+		604444412667F3B7001DA3AB /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
+		604444462668082D001DA3AB /* PagingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingController.swift; sourceTree = "<group>"; };
 		60F3C59A266785B100FE78B2 /* CatsPicturesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatsPicturesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F3C59D266785B100FE78B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60F3C59F266785B100FE78B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		60F3C5A1266785B100FE78B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		60F3C5A4266785B100FE78B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		60F3C5A7266785B100FE78B2 /* CatsPicturesApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CatsPicturesApp.xcdatamodel; sourceTree = "<group>"; };
 		60F3C5A9266785B200FE78B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60F3C5AC266785B200FE78B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -90,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				604443F82667C0E8001DA3AB /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +135,9 @@
 		6044432A26678A17001DA3AB /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				604443DC2667BFF0001DA3AB /* Helpers */,
 				6044439A2667A810001DA3AB /* HomeViewController */,
+				604443AE2667B074001DA3AB /* State.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -204,10 +228,59 @@
 		6044439A2667A810001DA3AB /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				604443B92667B0FD001DA3AB /* View */,
+				604443B32667B0E1001DA3AB /* ViewModel */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		604443B32667B0E1001DA3AB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				604443B42667B0F9001DA3AB /* HomeViewModel.swift */,
+				604444202667E47A001DA3AB /* CatCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		604443B92667B0FD001DA3AB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				604443C12667BA9B001DA3AB /* HomeCollectionViewCell */,
 				604443932667A72C001DA3AB /* HomeViewController.swift */,
 				604443942667A72C001DA3AB /* HomeViewController.xib */,
 			);
-			path = HomeViewController;
+			path = View;
+			sourceTree = "<group>";
+		};
+		604443C12667BA9B001DA3AB /* HomeCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				604443C22667BAD1001DA3AB /* HomeCollectionViewCell.swift */,
+				604443C32667BAD1001DA3AB /* HomeCollectionViewCell.xib */,
+			);
+			path = HomeCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		604443DC2667BFF0001DA3AB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				604444462668082D001DA3AB /* PagingController.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		604443ED2667C043001DA3AB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				604444012667CB24001DA3AB /* UICollectionView+Helpers.swift */,
+				604443EE2667C061001DA3AB /* UIImage+LoadImage.swift */,
+				604443FC2667C1AF001DA3AB /* UIImage+CatApp.swift */,
+				6044442E2667F1D0001DA3AB /* UIViewController+Alerts.swift */,
+				604444392667F388001DA3AB /* NSObject+Helpers.swift */,
+				604444412667F3B7001DA3AB /* UIView+Helpers.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		60F3C591266785B100FE78B2 = {
@@ -235,12 +308,11 @@
 			children = (
 				60F3C5D72667894400FE78B2 /* Application */,
 				60F3C5D82667896300FE78B2 /* Resources */,
+				604443ED2667C043001DA3AB /* Extensions */,
 				6044432A26678A17001DA3AB /* Presentation */,
 				6044432B26678A2F001DA3AB /* Domain */,
 				6044432C26678A3B001DA3AB /* Networking */,
 				6044432D26678A47001DA3AB /* Storage */,
-				60F3C5A1266785B100FE78B2 /* ViewController.swift */,
-				60F3C5A3266785B100FE78B2 /* Main.storyboard */,
 				60F3C5A6266785B100FE78B2 /* CatsPicturesApp.xcdatamodeld */,
 			);
 			path = CatsPicturesApp;
@@ -300,6 +372,9 @@
 			dependencies = (
 			);
 			name = CatsPicturesApp;
+			packageProductDependencies = (
+				604443F72667C0E8001DA3AB /* Kingfisher */,
+			);
 			productName = CatsPicturesApp;
 			productReference = 60F3C59A266785B100FE78B2 /* CatsPicturesApp.app */;
 			productType = "com.apple.product-type.application";
@@ -371,6 +446,9 @@
 				Base,
 			);
 			mainGroup = 60F3C591266785B100FE78B2;
+			packageReferences = (
+				604443F62667C0E8001DA3AB /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 60F3C59B266785B100FE78B2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -387,9 +465,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				604443C52667BAD1001DA3AB /* HomeCollectionViewCell.xib in Resources */,
 				60F3C5AD266785B200FE78B2 /* LaunchScreen.storyboard in Resources */,
 				60F3C5AA266785B200FE78B2 /* Assets.xcassets in Resources */,
-				60F3C5A5266785B100FE78B2 /* Main.storyboard in Resources */,
 				604443962667A72C001DA3AB /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,8 +517,10 @@
 				604443822667918D001DA3AB /* NetworkError.swift in Sources */,
 				6044434626678D7D001DA3AB /* EndPointType.swift in Sources */,
 				604443952667A72C001DA3AB /* HomeViewController.swift in Sources */,
+				604443AF2667B074001DA3AB /* State.swift in Sources */,
+				604443FD2667C1AF001DA3AB /* UIImage+CatApp.swift in Sources */,
+				604443EF2667C061001DA3AB /* UIImage+LoadImage.swift in Sources */,
 				6044433D26678D08001DA3AB /* ParameterEncoding.swift in Sources */,
-				60F3C5A2266785B100FE78B2 /* ViewController.swift in Sources */,
 				6044436C266790C8001DA3AB /* Environment.swift in Sources */,
 				6044437A2667916D001DA3AB /* NetworkManager.swift in Sources */,
 				60F3C59E266785B100FE78B2 /* AppDelegate.swift in Sources */,
@@ -448,12 +528,20 @@
 				6044433826678CF0001DA3AB /* JSONParameterEncoding.swift in Sources */,
 				6044434E26678D90001DA3AB /* HTTPMethod.swift in Sources */,
 				60F3C5A0266785B100FE78B2 /* SceneDelegate.swift in Sources */,
+				604444422667F3B7001DA3AB /* UIView+Helpers.swift in Sources */,
+				604444212667E47A001DA3AB /* CatCellViewModel.swift in Sources */,
 				6044436326679073001DA3AB /* URLSessionProtocol.swift in Sources */,
+				6044443A2667F388001DA3AB /* NSObject+Helpers.swift in Sources */,
+				604444472668082D001DA3AB /* PagingController.swift in Sources */,
 				60444374266790FF001DA3AB /* CatEndPoint.swift in Sources */,
+				604444042667CB24001DA3AB /* UICollectionView+Helpers.swift in Sources */,
 				6044438C2667A6A8001DA3AB /* CatResponse.swift in Sources */,
+				604443B52667B0F9001DA3AB /* HomeViewModel.swift in Sources */,
+				604443C42667BAD1001DA3AB /* HomeCollectionViewCell.swift in Sources */,
 				60F3C5A8266785B100FE78B2 /* CatsPicturesApp.xcdatamodeld in Sources */,
 				6044435326678DAD001DA3AB /* HttpTask.swift in Sources */,
 				6044433026678CCC001DA3AB /* URLParameterEncoding.swift in Sources */,
+				6044442F2667F1D0001DA3AB /* UIViewController+Alerts.swift in Sources */,
 				6044435826678DD5001DA3AB /* NetworkRouterProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,14 +578,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		60F3C5A3266785B100FE78B2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				60F3C5A4266785B100FE78B2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		60F3C5AB266785B200FE78B2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -787,6 +867,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		604443F62667C0E8001DA3AB /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		604443F72667C0E8001DA3AB /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 604443F62667C0E8001DA3AB /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		60F3C5A6266785B100FE78B2 /* CatsPicturesApp.xcdatamodeld */ = {
