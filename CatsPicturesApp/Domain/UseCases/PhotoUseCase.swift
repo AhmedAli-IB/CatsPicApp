@@ -6,11 +6,13 @@
 //
 
 import Foundation
-
+import CoreData
 // MARK: - PhotoUseCaseType
 //
 protocol PhotoUseCaseType {
     func getRandomPhotos(page: Int, limit: Int, onCompletion: @escaping (Result<[CatsResponse], NetworkError>) -> Void )
+    func saveToFavorite(_ photo: CatsResponse, onCompletion: ((PhotosStoreError?) -> Void)?)
+    func removeFromFavorite(_ photo: CatsResponse, onCompletion: ((PhotosStoreError?) -> Void)?)
 }
 // MARK: - PhotoUseCase
 /// `PhotoUseCase` responsible for handle domain data layer (Remote api or local database)
@@ -37,4 +39,37 @@ final class PhotoUseCase: PhotoUseCaseType {
             }
         }
     }
+    /// Add  photo to  favorite
+    /// - Parameters:
+    ///   - photo: item to be favorite
+    ///   - onCompletion: error callback in case of failure
+    func saveToFavorite(_ photo: CatsResponse, onCompletion: ((PhotosStoreError?) -> Void)? = nil) {
+        PhotoStore.shared.savePhoto(photo: photo) { error in
+            guard error == nil  else {
+                onCompletion?(error)
+                return
+            }
+            onCompletion?(nil)
+        }
+    }
+    
+    /// Remove photo from favorite
+    /// - Parameters:
+    ///   - photo: item to be deleted
+    ///   - onCompletion: error callback in case of failure
+    func removeFromFavorite(_ photo: CatsResponse, onCompletion: ((PhotosStoreError?) -> Void)? = nil) {
+        PhotoStore.shared.deletePhoto(photo: photo) { error in
+            guard error == nil  else {
+                onCompletion?(error)
+                return
+            }
+            onCompletion?(nil)
+        }
+    }
+}
+
+// MARK: - default implementation
+extension PhotoUseCaseType {
+    func saveToFavorite(_ photo: CatsResponse, onCompletion: ((PhotosStoreError?) -> Void)?) {}
+    func removeFromFavorite(_ photo: CatsResponse, onCompletion: ((PhotosStoreError?) -> Void)?) {}
 }
