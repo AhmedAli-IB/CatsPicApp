@@ -40,6 +40,10 @@
 		6044445526681126001DA3AB /* FailureMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044445426681126001DA3AB /* FailureMock.swift */; };
 		6044445A2668116A001DA3AB /* NetworkLayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044445926681169001DA3AB /* NetworkLayerTests.swift */; };
 		6044445F2668125E001DA3AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6044445E2668125E001DA3AB /* Constants.swift */; };
+		6073AE8A2668FA5300E0F919 /* PhotoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073AE892668FA5300E0F919 /* PhotoUseCase.swift */; };
+		6073AE93266900DC00E0F919 /* PhotoUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073AE92266900DC00E0F919 /* PhotoUseCaseMock.swift */; };
+		6073AE9B2669021B00E0F919 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073AE9A2669021B00E0F919 /* HomeViewModelTests.swift */; };
+		6073AEA02669150D00E0F919 /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073AE9F2669150D00E0F919 /* PhotoStore.swift */; };
 		60F3C59E266785B100FE78B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3C59D266785B100FE78B2 /* AppDelegate.swift */; };
 		60F3C5A0266785B100FE78B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3C59F266785B100FE78B2 /* SceneDelegate.swift */; };
 		60F3C5A8266785B100FE78B2 /* CatsPicturesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 60F3C5A6266785B100FE78B2 /* CatsPicturesApp.xcdatamodeld */; };
@@ -99,6 +103,10 @@
 		6044445426681126001DA3AB /* FailureMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailureMock.swift; sourceTree = "<group>"; };
 		6044445926681169001DA3AB /* NetworkLayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayerTests.swift; sourceTree = "<group>"; };
 		6044445E2668125E001DA3AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6073AE892668FA5300E0F919 /* PhotoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUseCase.swift; sourceTree = "<group>"; };
+		6073AE92266900DC00E0F919 /* PhotoUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUseCaseMock.swift; sourceTree = "<group>"; };
+		6073AE9A2669021B00E0F919 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		6073AE9F2669150D00E0F919 /* PhotoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
 		60F3C59A266785B100FE78B2 /* CatsPicturesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatsPicturesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F3C59D266785B100FE78B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60F3C59F266785B100FE78B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +160,7 @@
 		6044432B26678A2F001DA3AB /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				6073AE882668F9F300E0F919 /* UseCases */,
 				6044438A2667A5DA001DA3AB /* Entities */,
 			);
 			path = Domain;
@@ -172,6 +181,8 @@
 		6044432D26678A47001DA3AB /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				6073AEB526691C7600E0F919 /* Model */,
+				6073AE9F2669150D00E0F919 /* PhotoStore.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -301,6 +312,30 @@
 			path = NetworkLayerTests;
 			sourceTree = "<group>";
 		};
+		6073AE882668F9F300E0F919 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				6073AE892668FA5300E0F919 /* PhotoUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		6073AE91266900A300E0F919 /* HomeViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				6073AE92266900DC00E0F919 /* PhotoUseCaseMock.swift */,
+				6073AE9A2669021B00E0F919 /* HomeViewModelTests.swift */,
+			);
+			path = HomeViewModelTests;
+			sourceTree = "<group>";
+		};
+		6073AEB526691C7600E0F919 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		60F3C591266785B100FE78B2 = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +374,7 @@
 		60F3C5B6266785B200FE78B2 /* CatsPicturesAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				6073AE91266900A300E0F919 /* HomeViewModelTests */,
 				6044444B266810E0001DA3AB /* NetworkLayerTests */,
 				60F3C5B7266785B200FE78B2 /* CatsPicturesAppTests.swift */,
 				60F3C5B9266785B200FE78B2 /* Info.plist */,
@@ -546,6 +582,7 @@
 				60F3C59E266785B100FE78B2 /* AppDelegate.swift in Sources */,
 				6044435D26678E0C001DA3AB /* Router.swift in Sources */,
 				6044433826678CF0001DA3AB /* JSONParameterEncoding.swift in Sources */,
+				6073AE8A2668FA5300E0F919 /* PhotoUseCase.swift in Sources */,
 				6044434E26678D90001DA3AB /* HTTPMethod.swift in Sources */,
 				60F3C5A0266785B100FE78B2 /* SceneDelegate.swift in Sources */,
 				604444422667F3B7001DA3AB /* UIView+Helpers.swift in Sources */,
@@ -553,6 +590,7 @@
 				6044436326679073001DA3AB /* URLSessionProtocol.swift in Sources */,
 				6044443A2667F388001DA3AB /* NSObject+Helpers.swift in Sources */,
 				604444472668082D001DA3AB /* PagingController.swift in Sources */,
+				6073AEA02669150D00E0F919 /* PhotoStore.swift in Sources */,
 				60444374266790FF001DA3AB /* CatEndPoint.swift in Sources */,
 				604444042667CB24001DA3AB /* UICollectionView+Helpers.swift in Sources */,
 				6044438C2667A6A8001DA3AB /* CatResponse.swift in Sources */,
@@ -571,7 +609,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6044445F2668125E001DA3AB /* Constants.swift in Sources */,
+				6073AE9B2669021B00E0F919 /* HomeViewModelTests.swift in Sources */,
 				6044445A2668116A001DA3AB /* NetworkLayerTests.swift in Sources */,
+				6073AE93266900DC00E0F919 /* PhotoUseCaseMock.swift in Sources */,
 				6044444D266810F2001DA3AB /* EndPointTypeMock.swift in Sources */,
 				60F3C5B8266785B200FE78B2 /* CatsPicturesAppTests.swift in Sources */,
 				6044445526681126001DA3AB /* FailureMock.swift in Sources */,
