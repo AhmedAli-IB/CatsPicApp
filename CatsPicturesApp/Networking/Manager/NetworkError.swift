@@ -24,7 +24,7 @@ public enum NetworkError: Error, Equatable {
         case .unableToDecode:
             return "We could not decode the response."
         case .clientError:
-            return "failed to build request"
+            return "Request failed, but it's my fault"
         }
     }
 }
