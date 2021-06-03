@@ -98,4 +98,17 @@ class PhotoStore {
             }
         }
     }
+    /// remove all favorite
+    ///
+    func clear() {
+        persistentContainer.viewContext.performAndWait {
+            let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: PhotoMO.fetchRequest())
+            do {
+              try persistentContainer.viewContext.execute(batchDeleteRequest)
+            } catch {
+                
+            }
+        }
+    }
+
 }

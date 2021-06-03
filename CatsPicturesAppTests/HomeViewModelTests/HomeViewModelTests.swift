@@ -51,7 +51,7 @@ class HomeViewModelTests: XCTestCase {
     ///
     func testHitPhotoListEndPoint_FailureRequestWithClientError_ReturnTrue() {
         // Given
-        let errorMessage = "failed to build request"
+        let errorMessage = "Request failed, but it's my fault"
         
         let state: State = .error
         
