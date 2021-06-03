@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+extension PhotoMO {
+    static var normalSortDescriptor: [NSSortDescriptor] {
+        return [
+            NSSortDescriptor(key: "photoUrl", ascending: true)
+        ]
+    }
+}
