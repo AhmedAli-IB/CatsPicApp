@@ -6,17 +6,17 @@
 //
 
 import Foundation
-
 // MARK: - HomeViewModel
-/// `HomeViewModel` responsible handling home presentation layer
+/// `HomeViewModel` responsible for handling home presentation layer
 //
-class  HomeViewModel {
+class HomeViewModel {
     
     // MARK: - Properties
     //
     private var cats: [CatsResponse] = []
     let pagingController = PagingController()
     let photoUseCase: PhotoUseCaseType
+//    lazy var fetchResultsController: NSFetchedResultsController<PhotoMO> = PhotoStore.shared.fetchResultsController
 
     private var catsViewModels: [CatCellViewModel] = [] {
         didSet {
@@ -61,10 +61,43 @@ class  HomeViewModel {
     func getCurrentObject(for indexPath: IndexPath) -> CatCellViewModel {
         return catsViewModels[indexPath.row]
     }
-    
+    /// Switch between favorite state
+    ///
     func toggleFavorite(for indexPath: IndexPath) {
-        catsViewModels[indexPath.item].isFavorite = !catsViewModels[indexPath.item].isFavorite
-        onReloadNeeded?()
+        let item = cats[indexPath.item]
+        catsViewModels[indexPath.item].isFavorite  == false ? saveToFavorite(for: indexPath, item) : removeFromFavprite(for: indexPath, item)
+
+    }
+    /// Save item to core data
+    /// - Parameters:
+    ///   - indexPath: current item indexPath
+    ///   - photo: item to be favorite
+    func saveToFavorite(for indexPath: IndexPath, _ photo: CatsResponse) {
+    
+        photoUseCase.saveToFavorite(photo) { [weak self] (error) in
+            guard let self = self else { return }
+            guard error == nil  else {
+                self.alertMessage = error?.localizedDescription
+                return
+            }
+            self.catsViewModels[indexPath.item].isFavorite = !self.catsViewModels[indexPath.item].isFavorite
+            self.onReloadNeeded?()
+        }
+    }
+    /// Delete item to core data
+    /// - Parameters:
+    ///   - indexPath: current item indexPath
+    ///   - photo: item to be deleted
+    func removeFromFavprite(for indexPath: IndexPath, _ photo: CatsResponse) {
+        photoUseCase.removeFromFavorite(photo) { [weak self] (error) in
+            guard let self = self else { return }
+            guard error == nil  else {
+                self.alertMessage = error?.localizedDescription
+                return
+            }
+            self.catsViewModels[indexPath.item].isFavorite = !self.catsViewModels[indexPath.item].isFavorite
+            self.onReloadNeeded?()
+        }
     }
 }
 

@@ -55,6 +55,12 @@ private extension HomeViewController {
     func configureNavigationBar() {
         self.title = Strings.title
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let favoriteBarButtonItem = UIBarButtonItem(title: Strings.favourite,
+                                                    style: .done,
+                                                    target: self,
+                                                    action: #selector(showFavorite))
+        self.navigationItem.rightBarButtonItem  = favoriteBarButtonItem
     }
     /// Configure collection view
     ///
@@ -108,6 +114,16 @@ private extension HomeViewController {
         }
     }
 }
+// MARK: - Private Handlers
+//
+private extension HomeViewController {
+    
+    @objc
+    func showFavorite() {
+        let favoriteVC = FavoriteViewController(viewModel: FavoriteViewModel())
+        self.navigationController?.pushViewController(favoriteVC, animated: true)
+    }
+}
 // MARK: - UICollectionViewDataSource
 //
 extension HomeViewController: UICollectionViewDataSource {
@@ -156,6 +172,8 @@ extension HomeViewController: UICollectionViewDataSourcePrefetching {
 private extension HomeViewController {
     enum Strings {
         static let title = "Cats"
+        static let favourite = "Favorite"
+        
     }
 }
 // MARK: - Constants
