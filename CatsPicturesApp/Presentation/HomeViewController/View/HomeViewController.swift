@@ -158,7 +158,7 @@ private extension HomeViewController {
         static let title = "Cats"
     }
 }
-// MARK: - Constantss
+// MARK: - Constants
 //
 private extension HomeViewController {
     

@@ -6,3 +6,35 @@
 //
 
 import Foundation
+
+// MARK: - PhotoUseCaseType
+//
+protocol PhotoUseCaseType {
+    func getRandomPhotos(page: Int, limit: Int, onCompletion: @escaping (Result<[CatsResponse], NetworkError>) -> Void )
+}
+// MARK: - PhotoUseCase
+/// `PhotoUseCase` responsible for handle domain data layer (Remote api or local database)
+///
+final class PhotoUseCase: PhotoUseCaseType {
+    
+    // MARK: - Properties
+    //
+    let network = NetworkManager<CatEndPoint>()
+    
+    /// Request API to get random of cats photo
+    /// - Parameters:
+    ///   - page: current needed page
+    ///   - limit: size of page
+    ///   - onCompletion: On success return with array of cats object OR on failure return with error
+    func getRandomPhotos(page: Int, limit: Int, onCompletion: @escaping (Result<[CatsResponse], NetworkError>) -> Void) {
+        
+        network.request(api: .getCats(page: page, limit: limit)) { (result: Result<[CatsResponse], NetworkError>) in
+            switch result {
+            case .success(let response):
+                onCompletion(.success(response))
+            case .failure(let error):
+                onCompletion(.failure(error))
+            }
+        }
+    }
+}

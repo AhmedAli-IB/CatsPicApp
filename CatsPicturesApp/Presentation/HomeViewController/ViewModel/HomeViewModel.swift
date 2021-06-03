@@ -16,14 +16,13 @@ class  HomeViewModel {
     //
     private var cats: [CatsResponse] = []
     let pagingController = PagingController()
-    
+    let photoUseCase: PhotoUseCaseType
+
     private var catsViewModels: [CatCellViewModel] = [] {
         didSet {
             self.onReloadNeeded?()
         }
     }
-    
-    let network = NetworkManager<CatEndPoint>()
     var alertMessage: String? {
         didSet {
             self.showAlertClosure?()
@@ -44,12 +43,13 @@ class  HomeViewModel {
     
     // MARK: - Init
     //
-    init() {
+    init(photoUseCase: PhotoUseCaseType = PhotoUseCase()) {
+        self.photoUseCase = photoUseCase
     }
     // MARK: - Public Handlers
     //
     func viewDidLoad() {
-        loadCats()
+        loadPhotoCats()
     }
     /// number of items
     ///
@@ -71,25 +71,27 @@ class  HomeViewModel {
 // MARK: - Private Handlers
 //
 private extension HomeViewModel {
-    
-    func loadCats() {
+        
+    /// Load photo cats from remote api
+    ///
+    func loadPhotoCats() {
         guard pagingController.shouldLoadNextPage else { return }
             pagingController.startLoadingNextPage()
             state = .loading
-            network.request(api: .getCats(page: pagingController.nextPageIndex, limit: 20)) { [weak self] (result: Result<[CatsResponse], NetworkError>) in
-                guard let self = self else { return }
-                switch result {
-                
-                case .success(let cats):
-                    self.processFetchedCats(cats: cats)
-                    self.state = .populated
-                    self.pagingController.loadedPage()
-                case .failure(let error):
-                    self.state = .error
-                    self.alertMessage = error.localizedDescription
-                    self.pagingController.finishedWithError()
-                }
+        photoUseCase.getRandomPhotos(page: pagingController.nextPageIndex, limit: Constants.pageSize) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            
+            case .success(let cats):
+                self.processFetchedCats(cats: cats)
+                self.state = .populated
+                self.pagingController.loadedPage()
+            case .failure(let error):
+                self.state = .error
+                self.alertMessage = error.description
+                self.pagingController.finishedWithError()
             }
+        }
     }
     
     /// Create Cell View Model with image url and isFavorite equal false by default
@@ -106,5 +108,12 @@ private extension HomeViewModel {
             vms.append( createCellViewModel(cat) )
         }
         self.catsViewModels.append(contentsOf: vms)
+    }
+}
+// MARK: - Constants
+private extension HomeViewModel {
+    
+    enum Constants {
+        static let pageSize = 20
     }
 }
