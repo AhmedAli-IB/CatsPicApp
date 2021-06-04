@@ -16,5 +16,4 @@ Displays random cat pictures and offers the possibility to favour/un-favour a pi
 ## Used Libraries
 - KingFisher
 ## Screenshots
-<img src="Screenshots/home.png" width=300 hight= 300 >
-<img src="Screenshots/favorite.png" width=300 hight= 300>
+<img src="Screenshots/home.png" width=250 hight= 350 > <img src="Screenshots/favorite.png" width=250 hight= 350>
