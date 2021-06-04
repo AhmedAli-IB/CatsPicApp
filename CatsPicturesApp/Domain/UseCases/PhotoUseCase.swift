@@ -12,7 +12,9 @@ import CoreData
 protocol PhotoUseCaseType {
     func getRandomPhotos(page: Int, limit: Int, onCompletion: @escaping (Result<[CatsResponse], NetworkError>) -> Void )
     func saveToFavorite(_ photo: CatsResponse, onCompletion: ((PhotosStoreError?) -> Void)?)
-    func removeFromFavorite(_ photo: CatsResponse, onCompletion: ((PhotosStoreError?) -> Void)?)
+    func removeFromFavorite(_ photoId: String, onCompletion: ((PhotosStoreError?) -> Void)?)
+    func isExist(_ photoId: String) -> Bool
+    
 }
 // MARK: - PhotoUseCase
 /// `PhotoUseCase` responsible for handle domain data layer (Remote api or local database)
@@ -55,10 +57,10 @@ final class PhotoUseCase: PhotoUseCaseType {
     
     /// Remove photo from favorite
     /// - Parameters:
-    ///   - photo: item to be deleted
+    ///   - photoId: item id to be deleted
     ///   - onCompletion: error callback in case of failure
-    func removeFromFavorite(_ photo: CatsResponse, onCompletion: ((PhotosStoreError?) -> Void)? = nil) {
-        PhotoStore.shared.deletePhoto(photo: photo) { error in
+    func removeFromFavorite(_ photoId: String, onCompletion: ((PhotosStoreError?) -> Void)? = nil) {
+        PhotoStore.shared.deletePhoto(photoId: photoId) { error in
             guard error == nil  else {
                 onCompletion?(error)
                 return
@@ -66,10 +68,11 @@ final class PhotoUseCase: PhotoUseCaseType {
             onCompletion?(nil)
         }
     }
-}
-
-// MARK: - default implementation
-extension PhotoUseCaseType {
-    func saveToFavorite(_ photo: CatsResponse, onCompletion: ((PhotosStoreError?) -> Void)?) {}
-    func removeFromFavorite(_ photo: CatsResponse, onCompletion: ((PhotosStoreError?) -> Void)?) {}
+    
+    /// check existence of item
+    /// - Parameter photoId: item id to be deleted
+    /// - Returns: if exist return true else return fasle
+    func isExist(_ photoId: String) -> Bool {
+        return PhotoStore.shared.countObjects(photoId: photoId) > .zero
+    }
 }
