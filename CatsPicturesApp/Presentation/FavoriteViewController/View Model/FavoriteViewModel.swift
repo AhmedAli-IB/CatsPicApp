@@ -28,11 +28,19 @@ class FavoriteViewModel {
         }
     }
     
+    let photoUseCase: PhotoUseCaseType
+
     // MARK: - Callbacks
     //
     var onReloadNeeded: (() -> Void)?
     var showAlertClosure: (() -> Void)?
     var updateLoadingStatus: (() -> Void)?
+    
+    // MARK: - Init
+    //
+    init(photoUseCase: PhotoUseCaseType = PhotoUseCase()) {
+        self.photoUseCase = photoUseCase
+    }
     
     // MARK: - Public Handlers
     //
@@ -53,10 +61,27 @@ class FavoriteViewModel {
     func  numberOfItems(for section: Int) -> Int {
         return fetchResultsController.sections?[section].numberOfObjects ?? 0
     }
-    /// Get current image url based on index path
+    /// Create favorite cell view model with defualt value for favorite  = true
     ///
-    func getCurrentImageUrl(for indexPath: IndexPath) -> String? {
-        return fetchResultsController.object(at: indexPath).photoUrl
+    func createCellViewModel(for indexPath: IndexPath) -> CatCellViewModel {
+        return CatCellViewModel(imageURL: fetchResultsController.object(at: indexPath).photoUrl ?? "", isFavorite: true)
+    }
+    
+    /// Delete item to core data
+    /// - Parameters:
+    ///   - indexPath: current item indexPath
+    ///   - photo: item to be deleted
+    func removeFromFavprite(for indexPath: IndexPath) {
+        let photo = fetchResultsController.object(at: indexPath)
+        photoUseCase.removeFromFavorite(photo.photoId ?? "0") { [weak self] (error) in
+            guard let self = self else { return }
+            guard error == nil  else {
+                self.alertMessage = error?.localizedDescription
+                return
+            }
+            self.fetchFavoritePhotosFromDB()
+            self.reloadHomeView()
+        }
     }
 
 }
@@ -74,5 +99,11 @@ private extension FavoriteViewModel {
             state = .error
             alertMessage = error.localizedDescription
         }
+    }
+    
+    /// Relaod home collection view when remove item from favorite..
+    ///
+    func reloadHomeView() {
+        NotificationCenter.default.post(name: Notification.Name.homeListReloadRequired, object: nil)
     }
 }
