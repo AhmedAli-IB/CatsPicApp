@@ -36,7 +36,7 @@ class PhotoStore {
     ///
     var fetchResultsController: NSFetchedResultsController<PhotoMO> {
         let fetchRequest = PhotoMO.fetchRequest() as NSFetchRequest<PhotoMO>
-        fetchRequest.fetchBatchSize = 30
+        fetchRequest.fetchBatchSize = Constants.fetchBatchSize
         fetchRequest.sortDescriptors = PhotoMO.normalSortDescriptor
 
         let fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
@@ -56,6 +56,7 @@ class PhotoStore {
         persistentContainer.performBackgroundTask { (context) in
             let photoMO = PhotoMO(context: context)
             photoMO.photoUrl = photo.url
+            photoMO.photoId = photo.id
             do {
                 try context.save()
                 DispatchQueue.main.async {
@@ -68,19 +69,17 @@ class PhotoStore {
             }
         }
     }
-    
     /// Delete favorite photo from core data
     /// - Parameters:
-    ///   - photo: item to delete from core data
+    ///   - photo: item id  to delete from core data
     ///   - completionHandler: error callback in case of failure
     ///
-    func deletePhoto(photo: CatsResponse, completionHandler: ((PhotosStoreError?)->Void)?=nil) {
+    func deletePhoto(photoId: String, completionHandler: ((PhotosStoreError?)->Void)?=nil) {
         
         persistentContainer.performBackgroundTask { (context) in
             
             let request = PhotoMO.fetchRequest() as NSFetchRequest<PhotoMO>
-            guard let photoUrl = photo.url else { return }
-            request.predicate = NSPredicate(format: "photoUrl = %@", photoUrl)
+            request.predicate = NSPredicate(format: "photoId == %@", photoId)
             
             do {
                 let objects = try context.fetch(request)
@@ -98,6 +97,26 @@ class PhotoStore {
             }
         }
     }
+    /// Returns the number of entities found of favorite photos.
+     /// - Parameter photoId: current item id
+    /// - Returns: returns the number of photos found that match photo id
+    func countObjects(photoId: String) -> Int {
+        let fetchRequest = PhotoMO.fetchRequest() as NSFetchRequest<PhotoMO>
+
+        fetchRequest.includesSubentities = false
+        fetchRequest.predicate = NSPredicate(format: "photoId == %@", photoId)
+        fetchRequest.resultType = .countResultType
+        
+        var result = 0
+        
+        do {
+            result = try persistentContainer.viewContext.count(for: fetchRequest)
+        } catch {
+            assertionFailure()
+        }
+        
+        return result
+    }
     /// remove all favorite
     ///
     func clear() {
@@ -111,4 +130,12 @@ class PhotoStore {
         }
     }
 
+}
+// MARK: - Constants
+private extension PhotoStore {
+    
+    enum Constants {
+        // scrolling page size
+        static let fetchBatchSize = 30
+    }
 }
