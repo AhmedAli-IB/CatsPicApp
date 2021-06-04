@@ -11,4 +11,5 @@ import Foundation
 //
 struct CatsResponse: Codable {
     let url: String?
+    let id: String?
 }
