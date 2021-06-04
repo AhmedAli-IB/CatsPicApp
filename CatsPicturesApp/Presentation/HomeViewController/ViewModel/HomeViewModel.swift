@@ -7,22 +7,20 @@
 
 import Foundation
 // MARK: - HomeViewModel
-/// `HomeViewModel` responsible for handling home presentation layer
+/// `HomeViewModel` responsible for handling home list presentation layer
 //
 class HomeViewModel {
     
     // MARK: - Properties
     //
-    private var cats: [CatsResponse] = []
-    let pagingController = PagingController()
-    let photoUseCase: PhotoUseCaseType
-//    lazy var fetchResultsController: NSFetchedResultsController<PhotoMO> = PhotoStore.shared.fetchResultsController
-
-    private var catsViewModels: [CatCellViewModel] = [] {
+    private var cats: [CatsResponse] = [] {
         didSet {
             self.onReloadNeeded?()
         }
     }
+    let pagingController = PagingController()
+    let photoUseCase: PhotoUseCaseType
+
     var alertMessage: String? {
         didSet {
             self.showAlertClosure?()
@@ -54,48 +52,43 @@ class HomeViewModel {
     /// number of items
     ///
     var numberOfItems: Int {
-        return catsViewModels.count
+        return cats.count
     }
     /// Get current object based on index path
     ///
     func getCurrentObject(for indexPath: IndexPath) -> CatCellViewModel {
-        return catsViewModels[indexPath.row]
+        return createCellViewModel(cats[indexPath.item])
     }
     /// Switch between favorite state
     ///
     func toggleFavorite(for indexPath: IndexPath) {
         let item = cats[indexPath.item]
-        catsViewModels[indexPath.item].isFavorite  == false ? saveToFavorite(for: indexPath, item) : removeFromFavprite(for: indexPath, item)
-
+        photoUseCase.isExist(cats[indexPath.item].id ?? "0")  == false ? saveToFavorite(item) : removeFromFavprite(item.id)
     }
     /// Save item to core data
     /// - Parameters:
-    ///   - indexPath: current item indexPath
     ///   - photo: item to be favorite
-    func saveToFavorite(for indexPath: IndexPath, _ photo: CatsResponse) {
-    
+    func saveToFavorite(_ photo: CatsResponse) {
         photoUseCase.saveToFavorite(photo) { [weak self] (error) in
             guard let self = self else { return }
             guard error == nil  else {
                 self.alertMessage = error?.localizedDescription
                 return
             }
-            self.catsViewModels[indexPath.item].isFavorite = !self.catsViewModels[indexPath.item].isFavorite
             self.onReloadNeeded?()
         }
     }
     /// Delete item to core data
     /// - Parameters:
-    ///   - indexPath: current item indexPath
-    ///   - photo: item to be deleted
-    func removeFromFavprite(for indexPath: IndexPath, _ photo: CatsResponse) {
-        photoUseCase.removeFromFavorite(photo) { [weak self] (error) in
+    ///   - photoId: item id to be deleted
+    func removeFromFavprite(_ photoId: String?) {
+        guard let id = photoId else { return }
+        photoUseCase.removeFromFavorite(id) { [weak self] (error) in
             guard let self = self else { return }
             guard error == nil  else {
                 self.alertMessage = error?.localizedDescription
                 return
             }
-            self.catsViewModels[indexPath.item].isFavorite = !self.catsViewModels[indexPath.item].isFavorite
             self.onReloadNeeded?()
         }
     }
@@ -116,7 +109,7 @@ private extension HomeViewModel {
             switch result {
             
             case .success(let cats):
-                self.processFetchedCats(cats: cats)
+                self.cats.append(contentsOf: cats)
                 self.state = .populated
                 self.pagingController.loadedPage()
             case .failure(let error):
@@ -127,26 +120,17 @@ private extension HomeViewModel {
         }
     }
     
-    /// Create Cell View Model with image url and isFavorite equal false by default
+    /// Create cell view model
     ///
     func createCellViewModel(_ cat: CatsResponse ) -> CatCellViewModel {
-        return CatCellViewModel(imageURL: cat.url ?? "")
-    }
-    /// Process fetched cats
-    ///
-    func processFetchedCats(cats: [CatsResponse] ) {
-        self.cats.append(contentsOf: cats)
-        var vms = [CatCellViewModel]()
-        for cat in cats {
-            vms.append( createCellViewModel(cat) )
-        }
-        self.catsViewModels.append(contentsOf: vms)
+        return CatCellViewModel(imageURL: cat.url ?? "", isFavorite: photoUseCase.isExist(cat.id ?? "0"))
     }
 }
 // MARK: - Constants
 private extension HomeViewModel {
     
     enum Constants {
+        // scrolling page size
         static let pageSize = 20
     }
 }
