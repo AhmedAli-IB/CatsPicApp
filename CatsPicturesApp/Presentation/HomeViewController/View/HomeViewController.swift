@@ -36,6 +36,11 @@ class HomeViewController: UIViewController {
         configureAppearance()
         configureViewModel()
         viewModel.viewDidLoad()
+        setupNSNotificationCenter()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -123,6 +128,19 @@ private extension HomeViewController {
         let favoriteVC = FavoriteViewController(viewModel: FavoriteViewModel())
         self.navigationController?.pushViewController(favoriteVC, animated: true)
     }
+    
+    /// Add observer on reload needed
+    ///
+    func setupNSNotificationCenter() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.methodOfReceivedNotification(notification:)),
+                                               name: Notification.Name.homeListReloadRequired, object: nil)
+    }
+    @objc
+    func methodOfReceivedNotification(notification: Notification) {
+        collectionView.reloadData()
+    }
+
 }
 // MARK: - UICollectionViewDataSource
 //
@@ -173,7 +191,6 @@ private extension HomeViewController {
     enum Strings {
         static let title = "Cats"
         static let favourite = "Favorite"
-        
     }
 }
 // MARK: - Constants
