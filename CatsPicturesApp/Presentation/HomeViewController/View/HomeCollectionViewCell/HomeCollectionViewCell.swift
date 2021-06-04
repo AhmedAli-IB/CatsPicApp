@@ -20,7 +20,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
             configureCell()
         }
     }
-
+    // MARK: - Callbacks
+    //
     var toggleFavoriteClosure: (() -> Void)?
     
     // MARK: - Lifeccycle
@@ -45,7 +46,6 @@ private extension HomeCollectionViewCell {
     ///
     func configureCell() {
         catImageView.setImage(urlString: viewModel?.imageURL, placeholder: .catPlaceHolder)
-    
         viewModel?.isFavorite ?? false ? (favoriteButton.setImage(.favoritIcon, for: .normal)) : favoriteButton.setImage(.unfavoritIcon, for: .normal)
     }
 }

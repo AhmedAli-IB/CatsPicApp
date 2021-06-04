@@ -14,7 +14,7 @@ class FavoriteViewModel {
     
     // MARK: - Properties
     //
-    var fetchResultsController: NSFetchedResultsController<PhotoMO> = PhotoStore.shared.fetchResultsController
+    lazy var fetchResultsController: NSFetchedResultsController<PhotoMO> = PhotoStore.shared.fetchResultsController
     
     var alertMessage: String? {
         didSet {
@@ -29,7 +29,7 @@ class FavoriteViewModel {
     }
     
     let photoUseCase: PhotoUseCaseType
-
+    
     // MARK: - Callbacks
     //
     var onReloadNeeded: (() -> Void)?
@@ -71,25 +71,28 @@ class FavoriteViewModel {
     /// - Parameters:
     ///   - indexPath: current item indexPath
     ///   - photo: item to be deleted
-    func removeFromFavprite(for indexPath: IndexPath) {
+    func removeFromFavorite(for indexPath: IndexPath,
+                            onCompletion: ((PhotosStoreError?) -> Void)? = nil) {
         let photo = fetchResultsController.object(at: indexPath)
         photoUseCase.removeFromFavorite(photo.photoId ?? "0") { [weak self] (error) in
             guard let self = self else { return }
             guard error == nil  else {
                 self.alertMessage = error?.localizedDescription
+                onCompletion?(error)
                 return
             }
             self.fetchFavoritePhotosFromDB()
             self.reloadHomeView()
+            onCompletion?(nil)
         }
     }
-
+    
 }
 // MARK: - Private Handlers
 //
 private extension FavoriteViewModel {
     
-     func fetchFavoritePhotosFromDB() {
+    func fetchFavoritePhotosFromDB() {
         state = .loading
         do {
             try fetchResultsController.performFetch()

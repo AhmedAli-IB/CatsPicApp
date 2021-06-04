@@ -7,6 +7,9 @@
 
 import Foundation
 
+// MARK: - State
+/// `State`responsible for handling view state
+///
 enum State {
     case loading
     case error

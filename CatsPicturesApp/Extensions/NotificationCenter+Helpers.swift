@@ -6,7 +6,7 @@
 //
 
 import Foundation
-// MARK: - MainTabViewModel Notifications
+// MARK: - NotificationCenter + Helpers
 //
 extension NSNotification.Name {
     static let homeListReloadRequired = Foundation.Notification.Name(rawValue: "homeListReloadRequired")

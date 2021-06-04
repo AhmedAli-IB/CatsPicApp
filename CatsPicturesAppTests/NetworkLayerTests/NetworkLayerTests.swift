@@ -21,7 +21,7 @@ class NetworkLayerTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         try? super.setUpWithError()
         sut = NetworkManager()
-
+        
     }
     
     override func tearDownWithError() throws {
@@ -68,7 +68,7 @@ class NetworkLayerTests: XCTestCase {
     func testRequest_SuccessRequest_ReturnTrue() {
         // When
         let promise = XCTestExpectation()
-
+        
         sut.request(api: .testGetHttpMethod) { (result: Result<[CatsResponse], NetworkError>) in
             switch result {
             // Then

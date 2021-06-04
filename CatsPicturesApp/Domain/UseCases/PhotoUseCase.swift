@@ -41,6 +41,11 @@ final class PhotoUseCase: PhotoUseCaseType {
             }
         }
     }
+}
+// MARK: - Default implementation
+//
+extension PhotoUseCaseType {
+    
     /// Add  photo to  favorite
     /// - Parameters:
     ///   - photo: item to be favorite

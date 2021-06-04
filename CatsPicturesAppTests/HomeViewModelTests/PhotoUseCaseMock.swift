@@ -11,10 +11,11 @@ import Foundation
 // MARK: - PhotoUseCaseMock
 //
 class PhotoUseCaseMock: PhotoUseCaseType {
+    
     // MARK: - Propertes
     //
     var executeCalled = false
-    var cats: [CatsResponse] = []
+    var cats: [CatsResponse] = [CatsResponse(url: "catUrl", id: "catId")]
     var completeClosure: ((Result<[CatsResponse], NetworkError>) -> Void)?
     
     // MARK: - Handlers

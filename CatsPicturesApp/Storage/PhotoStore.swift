@@ -38,7 +38,7 @@ class PhotoStore {
         let fetchRequest = PhotoMO.fetchRequest() as NSFetchRequest<PhotoMO>
         fetchRequest.fetchBatchSize = Constants.fetchBatchSize
         fetchRequest.sortDescriptors = PhotoMO.normalSortDescriptor
-
+        
         let fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                 managedObjectContext: persistentContainer.viewContext,
                                                                 sectionNameKeyPath: "photoUrl",
@@ -98,11 +98,11 @@ class PhotoStore {
         }
     }
     /// Returns the number of entities found of favorite photos.
-     /// - Parameter photoId: current item id
+    /// - Parameter photoId: current item id
     /// - Returns: returns the number of photos found that match photo id
     func countObjects(photoId: String) -> Int {
         let fetchRequest = PhotoMO.fetchRequest() as NSFetchRequest<PhotoMO>
-
+        
         fetchRequest.includesSubentities = false
         fetchRequest.predicate = NSPredicate(format: "photoId == %@", photoId)
         fetchRequest.resultType = .countResultType
@@ -123,13 +123,13 @@ class PhotoStore {
         persistentContainer.viewContext.performAndWait {
             let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: PhotoMO.fetchRequest())
             do {
-              try persistentContainer.viewContext.execute(batchDeleteRequest)
+                try persistentContainer.viewContext.execute(batchDeleteRequest)
             } catch {
                 
             }
         }
     }
-
+    
 }
 // MARK: - Constants
 private extension PhotoStore {

@@ -20,7 +20,7 @@ class HomeViewModel {
     }
     let pagingController = PagingController()
     let photoUseCase: PhotoUseCaseType
-
+    
     var alertMessage: String? {
         didSet {
             self.showAlertClosure?()
@@ -63,32 +63,37 @@ class HomeViewModel {
     ///
     func toggleFavorite(for indexPath: IndexPath) {
         let item = cats[indexPath.item]
-        photoUseCase.isExist(cats[indexPath.item].id ?? "0")  == false ? saveToFavorite(item) : removeFromFavprite(item.id)
+        photoUseCase.isExist(cats[indexPath.item].id ?? "0")  == false ? saveToFavorite(item) : removeFromFavorite(item.id)
     }
     /// Save item to core data
     /// - Parameters:
     ///   - photo: item to be favorite
-    func saveToFavorite(_ photo: CatsResponse) {
+    func saveToFavorite(_ photo: CatsResponse, onCompletion: ((PhotosStoreError?) -> Void)? = nil) {
         photoUseCase.saveToFavorite(photo) { [weak self] (error) in
             guard let self = self else { return }
             guard error == nil  else {
                 self.alertMessage = error?.localizedDescription
+                onCompletion?(error)
                 return
             }
+            onCompletion?(nil)
             self.onReloadNeeded?()
         }
     }
     /// Delete item to core data
     /// - Parameters:
     ///   - photoId: item id to be deleted
-    func removeFromFavprite(_ photoId: String?) {
+    func removeFromFavorite(_ photoId: String?,
+                            onCompletion: ((PhotosStoreError?) -> Void)? = nil) {
         guard let id = photoId else { return }
         photoUseCase.removeFromFavorite(id) { [weak self] (error) in
             guard let self = self else { return }
             guard error == nil  else {
                 self.alertMessage = error?.localizedDescription
+                onCompletion?(error)
                 return
             }
+            onCompletion?(nil)
             self.onReloadNeeded?()
         }
     }
@@ -97,13 +102,13 @@ class HomeViewModel {
 // MARK: - Private Handlers
 //
 private extension HomeViewModel {
-        
+    
     /// Load photo cats from remote api
     ///
     func loadPhotoCats() {
         guard pagingController.shouldLoadNextPage else { return }
-            pagingController.startLoadingNextPage()
-            state = .loading
+        pagingController.startLoadingNextPage()
+        state = .loading
         photoUseCase.getRandomPhotos(page: pagingController.nextPageIndex, limit: Constants.pageSize) { [weak self] result in
             guard let self = self else { return }
             switch result {

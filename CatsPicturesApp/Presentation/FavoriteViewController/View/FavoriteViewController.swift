@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 class FavoriteViewController: UIViewController {
-
+    
     // MARK: - IBOutlets
     //
     @IBOutlet private weak var collectionView: UICollectionView!
@@ -28,7 +28,7 @@ class FavoriteViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     // MARK: - Lifecycle
     //
     override func viewDidLoad() {
@@ -118,7 +118,7 @@ private extension FavoriteViewController {
 extension FavoriteViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         viewModel.numberOfSection
-
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -128,7 +128,7 @@ extension FavoriteViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeue(at: indexPath) as HomeCollectionViewCell
         cell.viewModel = viewModel.createCellViewModel(for: indexPath)
         cell.toggleFavoriteClosure = { [weak self] in
-            self?.viewModel.removeFromFavprite(for: indexPath)
+            self?.viewModel.removeFromFavorite(for: indexPath)
         }
         return cell
     }
@@ -158,7 +158,7 @@ private extension FavoriteViewController {
     enum Strings {
         static let title = "Favorite 🌟"
         static let emptyMessage = "No favorite yet"
-
+        
     }
 }
 // MARK: - Constants

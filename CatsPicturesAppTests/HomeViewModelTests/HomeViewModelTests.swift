@@ -28,6 +28,7 @@ class HomeViewModelTests: XCTestCase {
     override func tearDown() {
         sut = nil
         photoUseCase = nil
+        PhotoStore.shared.clear()
         super.tearDown()
     }
     
@@ -36,14 +37,14 @@ class HomeViewModelTests: XCTestCase {
     func testHitPhotoListEndPoint_ReturnTrue() {
         // Given
         let state: State = .populated
-
+        
         // When
         sut.viewDidLoad()
         // Then
         XCTAssert(photoUseCase.executeCalled)
         
         photoUseCase.testExcutePhotoList_SuccessCase_ReturnTrue()
-
+        
         XCTAssertEqual(state, sut.state)
     }
     
@@ -58,11 +59,78 @@ class HomeViewModelTests: XCTestCase {
         // When
         sut.viewDidLoad()
         photoUseCase.testExcutePhotoList_FailureCase_FailedAndReturnError()
-
+        
         // Then
         XCTAssertEqual(sut.state, state)
         XCTAssertEqual(sut.alertMessage, errorMessage)
         
     }
-
+    
+    /// test saving new favorite
+    ///
+    func  testSaveFavorite_SuccessSavingeNewPhoto_ReturnTrue() {
+        
+        // Given
+        let photoStore = PhotoStore.shared
+        
+        // When
+        let expecation = XCTestExpectation()
+        
+        sut.saveToFavorite(CatsResponse(url: "imageurl", id: "photoId")) { (error) in
+            XCTAssertNil(error)
+            expecation.fulfill()
+        }
+        wait(for: [expecation], timeout: Constants.expectationTimeout)
+        
+        // Then
+        let fetchResultsController =  photoStore.fetchResultsController
+        try? fetchResultsController.performFetch()
+        XCTAssertEqual(fetchResultsController.sections?.count, 1)
+        XCTAssertEqual(fetchResultsController.object(at: IndexPath(item: .zero, section: .zero)).photoUrl, "imageurl")
+        XCTAssertEqual(fetchResultsController.object(at: IndexPath(item: .zero, section: .zero)).photoId, "photoId")
+    }
+    
+    /// test remve favorite item
+    ///
+    func  testRemoveFavorite_SuccessRemovingNewPhoto_ReturnTrue() {
+        // Given
+        
+        let photoStore = PhotoStore.shared
+        let expecation = XCTestExpectation()
+        
+        sut.saveToFavorite(CatsResponse(url: "imageurl", id: "photoId")) { (error) in
+            XCTAssertNil(error)
+            expecation.fulfill()
+        }
+        wait(for: [expecation], timeout: Constants.expectationTimeout)
+        // When
+        let expecation2 = XCTestExpectation()
+        sut.removeFromFavorite("photoId") { (error) in
+            XCTAssertNil(error)
+            expecation2.fulfill()
+        }
+        wait(for: [expecation2], timeout: Constants.expectationTimeout)
+        
+        // Then
+        let fetchResultsController =  photoStore.fetchResultsController
+        try? fetchResultsController.performFetch()
+        XCTAssertEqual(fetchResultsController.sections?.count, .zero)
+    }
+    
+    ///
+    ///
+    func testIsExistItem_SuccessFoundItem_ReturnTrue() {
+        // Given
+        let expecation = XCTestExpectation()
+        
+        // When
+        photoUseCase.saveToFavorite(CatsResponse(url: "imageurl", id: "photoId")) { (error) in
+            XCTAssertNil(error)
+            expecation.fulfill()
+        }
+        wait(for: [expecation], timeout: Constants.expectationTimeout)
+        
+        // Then
+        XCTAssertTrue(photoUseCase.isExist("photoId"))
+    }
 }

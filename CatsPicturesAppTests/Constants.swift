@@ -13,5 +13,5 @@ struct Constants {
 
     /// Default Expectation Timeout
     ///
-    static let expectationTimeout = TimeInterval(30)
+    static let expectationTimeout = TimeInterval(60)
 }

@@ -18,7 +18,7 @@ enum Environment {
         static let baseURL = "BASE_URL"
         static let apiKey = "API_KEY"
     }
-
+    
     // MARK: - Plist
     //
     private static let infoDictionary: [String: Any] = {

@@ -44,10 +44,10 @@ extension CatEndPoint: EndPointType {
         switch self {
         case .getCats(let page, let limit):
             return .requestParameters(bodyParameters: nil,
-                                       bodyEncoding: .urlEncoding,
-                                       urlParameters: ["page": page,
-                                                       "limit": limit,
-                                                       "api_key": Environment.apiKey])
+                                      bodyEncoding: .urlEncoding,
+                                      urlParameters: ["page": page,
+                                                      "limit": limit,
+                                                      "api_key": Environment.apiKey])
         }
     }
     

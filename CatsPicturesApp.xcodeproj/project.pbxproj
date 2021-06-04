@@ -48,11 +48,11 @@
 		6073AEC926692D7900E0F919 /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6073AEC726692D7900E0F919 /* FavoriteViewController.xib */; };
 		6073AED626693B6800E0F919 /* PhotosStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073AED526693B6800E0F919 /* PhotosStoreError.swift */; };
 		6073AEDB26693BE800E0F919 /* PhotoMO+SortDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073AEDA26693BE800E0F919 /* PhotoMO+SortDescriptor.swift */; };
-		6073AEE7266949A600E0F919 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073AEE5266949A600E0F919 /* FavoriteCollectionViewCell.swift */; };
-		6073AEE8266949A600E0F919 /* FavoriteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6073AEE6266949A600E0F919 /* FavoriteCollectionViewCell.xib */; };
 		6073AEF3266959F500E0F919 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073AEF2266959F500E0F919 /* FavoriteViewModel.swift */; };
 		6073AEFF26696D1200E0F919 /* PhotoStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073AEFE26696D1200E0F919 /* PhotoStoreTests.swift */; };
 		6073AF0726697A2A00E0F919 /* PagingControllerTests.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073AF0626697A2A00E0F919 /* PagingControllerTests.swift.swift */; };
+		60740400266A63480075FC41 /* NotificationCenter+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607403FF266A63480075FC41 /* NotificationCenter+Helpers.swift */; };
+		60740409266A7C320075FC41 /* FavoriteViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60740408266A7C320075FC41 /* FavoriteViewModelTests.swift */; };
 		60F3C59E266785B100FE78B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3C59D266785B100FE78B2 /* AppDelegate.swift */; };
 		60F3C5A0266785B100FE78B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3C59F266785B100FE78B2 /* SceneDelegate.swift */; };
 		60F3C5A8266785B100FE78B2 /* CatsPicturesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 60F3C5A6266785B100FE78B2 /* CatsPicturesApp.xcdatamodeld */; };
@@ -120,11 +120,11 @@
 		6073AEC726692D7900E0F919 /* FavoriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
 		6073AED526693B6800E0F919 /* PhotosStoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosStoreError.swift; sourceTree = "<group>"; };
 		6073AEDA26693BE800E0F919 /* PhotoMO+SortDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoMO+SortDescriptor.swift"; sourceTree = "<group>"; };
-		6073AEE5266949A600E0F919 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
-		6073AEE6266949A600E0F919 /* FavoriteCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCollectionViewCell.xib; sourceTree = "<group>"; };
 		6073AEF2266959F500E0F919 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		6073AEFE26696D1200E0F919 /* PhotoStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStoreTests.swift; sourceTree = "<group>"; };
 		6073AF0626697A2A00E0F919 /* PagingControllerTests.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingControllerTests.swift.swift; sourceTree = "<group>"; };
+		607403FF266A63480075FC41 /* NotificationCenter+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Helpers.swift"; sourceTree = "<group>"; };
+		60740408266A7C320075FC41 /* FavoriteViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModelTests.swift; sourceTree = "<group>"; };
 		60F3C59A266785B100FE78B2 /* CatsPicturesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatsPicturesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F3C59D266785B100FE78B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60F3C59F266785B100FE78B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -318,6 +318,7 @@
 				6044442E2667F1D0001DA3AB /* UIViewController+Alerts.swift */,
 				604444392667F388001DA3AB /* NSObject+Helpers.swift */,
 				604444412667F3B7001DA3AB /* UIView+Helpers.swift */,
+				607403FF266A63480075FC41 /* NotificationCenter+Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -361,20 +362,10 @@
 		6073AEEC2669599100E0F919 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6073AEED266959A500E0F919 /* Cell */,
 				6073AEC626692D7900E0F919 /* FavoriteViewController.swift */,
 				6073AEC726692D7900E0F919 /* FavoriteViewController.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		6073AEED266959A500E0F919 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				6073AEE5266949A600E0F919 /* FavoriteCollectionViewCell.swift */,
-				6073AEE6266949A600E0F919 /* FavoriteCollectionViewCell.xib */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		6073AEF1266959DB00E0F919 /* View Model */ = {
@@ -391,6 +382,14 @@
 				6073AEFE26696D1200E0F919 /* PhotoStoreTests.swift */,
 			);
 			path = PhotoStoreTests;
+			sourceTree = "<group>";
+		};
+		60740407266A7C130075FC41 /* FavoriteViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				60740408266A7C320075FC41 /* FavoriteViewModelTests.swift */,
+			);
+			path = FavoriteViewModelTests;
 			sourceTree = "<group>";
 		};
 		60F3C591266785B100FE78B2 = {
@@ -432,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				6073AE91266900A300E0F919 /* HomeViewModelTests */,
+				60740407266A7C130075FC41 /* FavoriteViewModelTests */,
 				6044444B266810E0001DA3AB /* NetworkLayerTests */,
 				6073AEFD26696CD300E0F919 /* PhotoStoreTests */,
 				60F3C5B7266785B200FE78B2 /* CatsPicturesAppTests.swift */,
@@ -584,7 +584,6 @@
 				60F3C5AD266785B200FE78B2 /* LaunchScreen.storyboard in Resources */,
 				60F3C5AA266785B200FE78B2 /* Assets.xcassets in Resources */,
 				6073AEC926692D7900E0F919 /* FavoriteViewController.xib in Resources */,
-				6073AEE8266949A600E0F919 /* FavoriteCollectionViewCell.xib in Resources */,
 				604443962667A72C001DA3AB /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -635,7 +634,6 @@
 				6044434626678D7D001DA3AB /* EndPointType.swift in Sources */,
 				604443952667A72C001DA3AB /* HomeViewController.swift in Sources */,
 				6073AED626693B6800E0F919 /* PhotosStoreError.swift in Sources */,
-				6073AEE7266949A600E0F919 /* FavoriteCollectionViewCell.swift in Sources */,
 				604443AF2667B074001DA3AB /* State.swift in Sources */,
 				604443FD2667C1AF001DA3AB /* UIImage+CatApp.swift in Sources */,
 				604443EF2667C061001DA3AB /* UIImage+LoadImage.swift in Sources */,
@@ -650,6 +648,7 @@
 				60F3C5A0266785B100FE78B2 /* SceneDelegate.swift in Sources */,
 				604444422667F3B7001DA3AB /* UIView+Helpers.swift in Sources */,
 				6073AEF3266959F500E0F919 /* FavoriteViewModel.swift in Sources */,
+				60740400266A63480075FC41 /* NotificationCenter+Helpers.swift in Sources */,
 				604444212667E47A001DA3AB /* CatCellViewModel.swift in Sources */,
 				6044436326679073001DA3AB /* URLSessionProtocol.swift in Sources */,
 				6044443A2667F388001DA3AB /* NSObject+Helpers.swift in Sources */,
@@ -678,6 +677,7 @@
 				6073AE9B2669021B00E0F919 /* HomeViewModelTests.swift in Sources */,
 				6073AF0726697A2A00E0F919 /* PagingControllerTests.swift.swift in Sources */,
 				6073AEFF26696D1200E0F919 /* PhotoStoreTests.swift in Sources */,
+				60740409266A7C320075FC41 /* FavoriteViewModelTests.swift in Sources */,
 				6044445A2668116A001DA3AB /* NetworkLayerTests.swift in Sources */,
 				6073AE93266900DC00E0F919 /* PhotoUseCaseMock.swift in Sources */,
 				6044444D266810F2001DA3AB /* EndPointTypeMock.swift in Sources */,

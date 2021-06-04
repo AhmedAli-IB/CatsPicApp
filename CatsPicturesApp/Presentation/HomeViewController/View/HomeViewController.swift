@@ -140,7 +140,7 @@ private extension HomeViewController {
     func methodOfReceivedNotification(notification: Notification) {
         collectionView.reloadData()
     }
-
+    
 }
 // MARK: - UICollectionViewDataSource
 //
