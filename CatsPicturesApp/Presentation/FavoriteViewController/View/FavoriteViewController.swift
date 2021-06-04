@@ -53,8 +53,6 @@ private extension FavoriteViewController {
     ///
     func configureNavigationBar() {
         self.title = Strings.title
-        navigationController?.navigationBar.prefersLargeTitles = true
-
     }
     /// Configure collection view
     ///
@@ -66,7 +64,7 @@ private extension FavoriteViewController {
     /// Register cells
     ///
     func registerCells() {
-        collectionView.registerCellNib(FavoriteCollectionViewCell.self)
+        collectionView.registerCellNib(HomeCollectionViewCell.self)
     }
     
     /// Configure view model
@@ -127,9 +125,11 @@ extension FavoriteViewController: UICollectionViewDataSource {
         viewModel.numberOfItems(for: section)
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeue(at: indexPath) as FavoriteCollectionViewCell
-        cell.viewModel = viewModel.getCurrentImageUrl(for: indexPath)
-
+        let cell = collectionView.dequeue(at: indexPath) as HomeCollectionViewCell
+        cell.viewModel = viewModel.createCellViewModel(for: indexPath)
+        cell.toggleFavoriteClosure = { [weak self] in
+            self?.viewModel.removeFromFavprite(for: indexPath)
+        }
         return cell
     }
 }
